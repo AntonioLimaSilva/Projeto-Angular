@@ -1,0 +1,23 @@
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+
+import { PessoasPesquisaComponent } from "./pessoas-pesquisa/pessoas-pesquisa.component";
+import { PessoaCadastroComponent } from "./pessoa-cadastro/pessoa-cadastro.component";
+
+const routes: Routes = [
+    { path: 'pessoas', component: PessoasPesquisaComponent },
+    { path: 'pessoas/nova', component: PessoaCadastroComponent },
+    { path: 'pessoas/:id', component: PessoaCadastroComponent }
+];
+/**
+ * É uma convensão do angular criar o modulo routing module dentro da pasta app, dessa forma
+ * fica mais resumido o app module, é recomendado exportat o RouterModule, para ser possível
+ * acessar algumas diretivas do mesmo
+ */
+@NgModule({
+imports: [
+    RouterModule.forChild(routes)
+],
+exports: [ RouterModule ]
+})
+export class PessoasRoutingModule {}

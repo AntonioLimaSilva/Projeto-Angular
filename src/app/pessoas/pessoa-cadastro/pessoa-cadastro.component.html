@@ -1,0 +1,82 @@
+<div class="container">
+
+    <form #form="ngForm" (ngSubmit)="salvar(form)" autocomplete="off">
+
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <h1>{{ editando ? 'Edição da pessoa' : 'Nova Pessoa' }}</h1>
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label>Nome</label>
+            <input type="text" pInputText name="nome" ngModel #nome="ngModel" 
+              required minlength="5" [(ngModel)]="pessoa.nome">
+
+            <app-message [control]="nome" error="required" text="Informe um nome"></app-message>
+            <app-message [control]="nome" error="minlength" text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
+          </div>
+
+          <div class="ui-g-8 ui-md-8 ui-sm-12 ui-fluid">
+            <label>Logradouro</label>
+            <input type="text" pInputText name="logradouro" required ngModel #logradouro="ngModel"
+              [(ngModel)]="pessoa.endereco.logradouro">
+
+            <app-message [control]="logradouro" error="required" text=" Informe um logradouro"></app-message>
+          </div>
+
+          <div class="ui-g-4  ui-sm-12 ui-fluid">
+            <label>Número</label>
+            <input type="text" pInputText required name="numero" ngModel #numero="ngModel"
+              [(ngModel)]="pessoa.endereco.numero">
+
+            <app-message [control]="numero" error="required" text="Informe um número"></app-message>
+          </div>
+
+          <div class="ui-g-4  ui-sm-12 ui-fluid">
+            <label>Complemento</label>
+            <input type="text" pInputText name="complemento" [(ngModel)]="pessoa.endereco.complemento">
+          </div>
+
+          <div class="ui-g-4  ui-sm-12 ui-fluid">
+            <label>Bairro</label>
+            <input type="text" pInputText required name="bairro" ngModel #bairro="ngModel"
+            [(ngModel)]="pessoa.endereco.bairro">
+
+            <app-message [control]="bairro" error="required" text="Informe um bairro"></app-message>
+          </div>
+
+          <div class="ui-g-4  ui-sm-12 ui-fluid">
+            <label>CEP</label>
+            <p-inputMask mask="99.999-999" required name="cep" ngModel #cep="ngModel"
+              [(ngModel)]="pessoa.endereco.cep"></p-inputMask>
+
+            <app-message [control]="cep" error="required" text="Informe um CEP"></app-message>
+          </div>
+
+          <div class="ui-g-6  ui-sm-12 ui-fluid">
+            <label>Estado</label>
+            <input type="text" pInputText required name="estado" ngModel #estado="ngModel"
+              [(ngModel)]="pessoa.endereco.estado">
+
+            <app-message [control]="estado" error="required" text="Informe um estado"></app-message>
+          </div>
+
+          <div class="ui-g-6  ui-sm-12 ui-fluid">
+            <label>Cidade</label>
+            <input type="text" pInputText required name="cidade" ngModel #cidade="ngModel"
+              [(ngModel)]="pessoa.endereco.cidade">
+
+            <app-message [control]="cidade" error="required" text="Informe uma cidade"></app-message>
+          </div>
+        </div>
+
+        <div class="ui-g-12">
+          <button type="submit" pButton label="Salvar" *ngIf="authService.temPermissao('ROLE_CADASTRAR_PESSOA')"
+            [disabled]="form.invalid"></button>
+          <button type="button" pButton label="Nova" class="ui-button-info" (click)="nova(form)"></button>
+          <a routerLink="/pessoas" >Voltar para a pesquisa</a>
+        </div>
+    </form>
+
+  </div>
+
