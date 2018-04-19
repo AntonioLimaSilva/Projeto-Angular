@@ -44,10 +44,10 @@ export class AuthService {
 
   obterNovoAccessToken(): Promise<void> {
     const headers = new Headers();
+    headers.append('Authorization', 'Basic YW5ndWxhcjo0MzIx');
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
-    const body = 'grant_type=reflesh_token';
+    const body = 'grant_type=refresh_token';
 
     return this.http.post(this.oauthTokenUrl, body, { headers, withCredentials: true })
     .toPromise()
@@ -62,6 +62,11 @@ export class AuthService {
       console.error('Erro ao renovar token.', response);
       return Promise.resolve(null);
     });
+  }
+
+  limparAccessToken() {
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
   }
 
   temPermissao(permissao: string) {

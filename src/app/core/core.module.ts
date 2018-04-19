@@ -1,4 +1,5 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
@@ -29,6 +30,7 @@ registerLocaleData(localePt);
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
     RouterModule,
 
     ToastyModule.forRoot(),
@@ -52,7 +54,6 @@ registerLocaleData(localePt);
     AuthService,
     Title,
     JwtHelper,
-
     ConfirmationService, 
     { provide: LOCALE_ID, useValue: 'pt' }
   ]

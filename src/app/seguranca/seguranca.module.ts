@@ -13,6 +13,7 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { MoneyHttp } from './money-http';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { LogoutService } from './logout.service';
 
 /**
  * Configuração das requisições com auth2
@@ -47,7 +48,8 @@ export function authHttpServiceFactory(authService: AuthService, http: Http, opt
       useFactory: authHttpServiceFactory,
       deps: [AuthService, Http, RequestOptions]
     },
-    AuthGuard
+    AuthGuard,
+    LogoutService
   ]
 })
 export class SegurancaModule { }
