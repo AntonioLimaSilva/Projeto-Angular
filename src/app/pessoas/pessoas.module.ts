@@ -8,6 +8,7 @@ import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { ButtonModule } from 'primeng/components/button/button';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
+import { TriStateCheckboxModule } from 'primeng/primeng'
 
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
@@ -23,6 +24,7 @@ import { PessoasRoutingModule } from './pessoas-routing.module';
     ButtonModule,
     InputTextModule,
     DataTableModule,
+    TriStateCheckboxModule,
     RouterModule,
 
     SharedModule,

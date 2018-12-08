@@ -33,7 +33,6 @@ import { LancamentosRoutingModule } from './lancamentos-routing.module';
     TooltipModule,
     ButtonModule,
     DataTableModule,
-
     CurrencyMaskModule,
 
     SharedModule,
