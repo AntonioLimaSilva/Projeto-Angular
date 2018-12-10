@@ -19,6 +19,8 @@ import { CategoriaService } from '../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
 import { AuthService } from '../seguranca/auth.service';
+import { GrupoService } from '../grupos/grupo.service';
+import { UsuarioService } from '../usuarios/usuario.service';
 
 registerLocaleData(localePt);
 
@@ -49,6 +51,8 @@ registerLocaleData(localePt);
   providers: [
     PessoaService,
     LancamentoService,
+    GrupoService,
+    UsuarioService,
     ErrorHandlerService,
     CategoriaService,
     AuthService,

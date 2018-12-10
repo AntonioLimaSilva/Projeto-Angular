@@ -1,0 +1,47 @@
+<div class="container">
+
+  <form #form="ngForm" (ngSubmit)="salvar(form)" autocomplete="off">
+
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h1>{{ editando ? 'Edição de usuário' : 'Novo usuário' }}</h1>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+          <label>Nome</label>
+          <input type="text" pInputText name="nome" ngModel #nome="ngModel" 
+            required minlength="5" [(ngModel)]="usuario.nome">
+
+          <app-message [control]="nome" error="required" text="Informe um nome"></app-message>
+          <app-message [control]="nome" error="minlength" text="Mínimo de {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-message>
+        </div>
+
+        <div class="ui-g-8 ui-md-8 ui-sm-12 ui-fluid">
+          <label>Email</label>
+          <input type="text" pInputText name="email" required ngModel #email="ngModel"
+            [(ngModel)]="usuario.email">
+
+          <app-message [control]="email" error="required" text=" Informe um email"></app-message>
+        </div>
+
+        <div class="ui-g-4  ui-sm-12 ui-fluid">
+          <label>Senha</label>
+          <input type="text" pInputText name="senha" [(ngModel)]="usuario.senha">
+        </div>
+
+        <div class="ui-g-4  ui-sm-12 ui-fluid">
+          <td *ngFor="let grupo of grupos" class="align-center">
+            <p-radioButton name="grupo" [value]="grupo" [label]="grupo.nome" (click)="setGrupo(grupo)"></p-radioButton>
+          </td>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <button type="submit" pButton label="Salvar"
+          [disabled]="form.invalid"></button>
+        <button type="button" pButton label="Novo" class="ui-button-info" (click)="novo(form)"></button>
+        <a routerLink="/pessoas" >Voltar para a pesquisa</a>
+      </div>
+  </form>
+
+</div>

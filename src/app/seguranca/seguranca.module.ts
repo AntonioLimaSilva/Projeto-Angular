@@ -23,9 +23,7 @@ import { LogoutService } from './logout.service';
  */
 export function authHttpServiceFactory(authService: AuthService, http: Http, options: RequestOptions) {
   const config = new AuthConfig({
-    globalHeaders: [
-      { 'Content-Type': 'application/json' }
-    ]
+    globalHeaders: [ { 'Content-Type': 'application/json' } ]
   });
 
   return new MoneyHttp(authService, config, http, options);

@@ -5,6 +5,14 @@ export class Pessoa {
     endereco = new Endereco();
 }
 
+export class Usuario {
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    grupos: any[] = []
+}
+
 export class Endereco {
     logradouro: string;
     numero: string;

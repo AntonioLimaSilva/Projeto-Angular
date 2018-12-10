@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { ToastyService } from 'ng2-toasty';
 import { NotAuthenticatedError } from '../seguranca/money-http';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorHandlerService {
@@ -21,10 +21,8 @@ export class ErrorHandlerService {
 
     } else if(errorResponse instanceof NotAuthenticatedError) {
       msg =  'Sua sessão expireou!'
-      this.router.navigate(['/login']);
-      
-    }
-    else if (errorResponse instanceof Response
+      this.router.navigate(['/login']);     
+    } else if (errorResponse instanceof Response
         && errorResponse.status >= 400 && errorResponse.status <= 499) {
       let errors;
       msg = 'Ocorreu um erro ao processar a sua solicitação';

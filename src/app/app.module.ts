@@ -8,10 +8,11 @@ import { PessoasModule } from './pessoas/pessoas.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
     CoreModule,
     LancamentosModule,
     PessoasModule,
+    UsuariosModule,
     SegurancaModule,
     AppRoutingModule
   ],
