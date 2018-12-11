@@ -18,20 +18,23 @@
 
         <div class="ui-g-8 ui-md-8 ui-sm-12 ui-fluid">
           <label>Email</label>
-          <input type="text" pInputText name="email" required ngModel #email="ngModel"
-            [(ngModel)]="usuario.email">
+          <input type="text" [pattern]="emailPattern" pInputText name="email" required ngModel #email="ngModel"
+            required [(ngModel)]="usuario.email">
 
           <app-message [control]="email" error="required" text=" Informe um email"></app-message>
         </div>
 
         <div class="ui-g-4  ui-sm-12 ui-fluid">
           <label>Senha</label>
-          <input type="text" pInputText name="senha" [(ngModel)]="usuario.senha">
+          <input type="password" pPassword name="senha" [(ngModel)]="usuario.senha" required ngModel #senha="ngModel">
+
+          <app-message [control]="senha" error="required" text=" Informe uma senha"></app-message>
         </div>
 
         <div class="ui-g-4  ui-sm-12 ui-fluid">
-          <td *ngFor="let grupo of grupos" class="align-center">
-            <p-radioButton name="grupo" [value]="grupo" [label]="grupo.nome" (click)="setGrupo(grupo)"></p-radioButton>
+          <td *ngFor="let grup of grupos" class="align-center">
+            <p-radioButton name="grup" [value]="grup" [label]="grup.nome" 
+              (click)="setGrupo(grup)"></p-radioButton><br>
           </td>
         </div>
       </div>

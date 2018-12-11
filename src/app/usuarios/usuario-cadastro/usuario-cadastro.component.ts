@@ -17,6 +17,7 @@ export class UsuarioCadastroComponent implements OnInit {
   usuario = new Usuario();
   grupos: any[] = [];
   grupo: any;
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
   constructor(
     private grupoService: GrupoService,
